@@ -9105,8 +9105,7 @@ uint8_t *pulp_nn_matmul_u8_u8_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i8_i8(
                         uint8_t *pIn,
@@ -9121,8 +9120,7 @@ uint8_t *pulp_nn_matmul_u8_i8_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u8_i8(
                         int8_t *pIn,
@@ -9137,8 +9135,7 @@ uint8_t *pulp_nn_matmul_i8_u8_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i8_i8(
                         int8_t *pIn,
@@ -9153,8 +9150,7 @@ uint8_t *pulp_nn_matmul_i8_i8_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u8_i4(
                         uint8_t *pIn,
@@ -9169,8 +9165,7 @@ uint8_t *pulp_nn_matmul_u8_u8_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i8_i4(
                         uint8_t *pIn,
@@ -9185,8 +9180,7 @@ uint8_t *pulp_nn_matmul_u8_i8_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u8_i4(
                         int8_t *pIn,
@@ -9201,8 +9195,7 @@ uint8_t *pulp_nn_matmul_i8_u8_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i8_i4(
                         int8_t *pIn,
@@ -9217,8 +9210,7 @@ uint8_t *pulp_nn_matmul_i8_i8_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u8_i2(
                         uint8_t *pIn,
@@ -9233,8 +9225,7 @@ uint8_t *pulp_nn_matmul_u8_u8_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i8_i2(
                         uint8_t *pIn,
@@ -9249,8 +9240,7 @@ uint8_t *pulp_nn_matmul_u8_i8_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u8_i2(
                         int8_t *pIn,
@@ -9265,8 +9255,7 @@ uint8_t *pulp_nn_matmul_i8_u8_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i8_i2(
                         int8_t *pIn,
@@ -9281,8 +9270,7 @@ uint8_t *pulp_nn_matmul_i8_i8_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u4_i8(
                         uint8_t *pIn,
@@ -9297,8 +9285,7 @@ uint8_t *pulp_nn_matmul_u8_u4_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i4_i8(
                         uint8_t *pIn,
@@ -9313,8 +9300,7 @@ uint8_t *pulp_nn_matmul_u8_i4_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u4_i8(
                         int8_t *pIn,
@@ -9329,8 +9315,7 @@ uint8_t *pulp_nn_matmul_i8_u4_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i4_i8(
                         int8_t *pIn,
@@ -9345,8 +9330,7 @@ uint8_t *pulp_nn_matmul_i8_i4_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u4_i4(
                         uint8_t *pIn,
@@ -9361,8 +9345,7 @@ uint8_t *pulp_nn_matmul_u8_u4_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i4_i4(
                         uint8_t *pIn,
@@ -9377,8 +9360,7 @@ uint8_t *pulp_nn_matmul_u8_i4_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u4_i4(
                         int8_t *pIn,
@@ -9393,8 +9375,7 @@ uint8_t *pulp_nn_matmul_i8_u4_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i4_i4(
                         int8_t *pIn,
@@ -9409,8 +9390,7 @@ uint8_t *pulp_nn_matmul_i8_i4_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u4_i2(
                         uint8_t *pIn,
@@ -9425,8 +9405,7 @@ uint8_t *pulp_nn_matmul_u8_u4_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i4_i2(
                         uint8_t *pIn,
@@ -9441,8 +9420,7 @@ uint8_t *pulp_nn_matmul_u8_i4_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u4_i2(
                         int8_t *pIn,
@@ -9457,8 +9435,7 @@ uint8_t *pulp_nn_matmul_i8_u4_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i4_i2(
                         int8_t *pIn,
@@ -9473,8 +9450,7 @@ uint8_t *pulp_nn_matmul_i8_i4_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u2_i8(
                         uint8_t *pIn,
@@ -9489,8 +9465,7 @@ uint8_t *pulp_nn_matmul_u8_u2_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i2_i8(
                         uint8_t *pIn,
@@ -9505,8 +9480,7 @@ uint8_t *pulp_nn_matmul_u8_i2_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u2_i8(
                         int8_t *pIn,
@@ -9521,8 +9495,7 @@ uint8_t *pulp_nn_matmul_i8_u2_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i2_i8(
                         int8_t *pIn,
@@ -9537,8 +9510,7 @@ uint8_t *pulp_nn_matmul_i8_i2_i8(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u2_i4(
                         uint8_t *pIn,
@@ -9553,8 +9525,7 @@ uint8_t *pulp_nn_matmul_u8_u2_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i2_i4(
                         uint8_t *pIn,
@@ -9569,8 +9540,7 @@ uint8_t *pulp_nn_matmul_u8_i2_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u2_i4(
                         int8_t *pIn,
@@ -9585,8 +9555,7 @@ uint8_t *pulp_nn_matmul_i8_u2_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i2_i4(
                         int8_t *pIn,
@@ -9601,8 +9570,7 @@ uint8_t *pulp_nn_matmul_i8_i2_i4(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_u2_i2(
                         uint8_t *pIn,
@@ -9617,8 +9585,7 @@ uint8_t *pulp_nn_matmul_u8_u2_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_u8_i2_i2(
                         uint8_t *pIn,
@@ -9633,8 +9600,7 @@ uint8_t *pulp_nn_matmul_u8_i2_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_u2_i2(
                         int8_t *pIn,
@@ -9649,8 +9615,7 @@ uint8_t *pulp_nn_matmul_i8_u2_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 uint8_t *pulp_nn_matmul_i8_i2_i2(
                         int8_t *pIn,
@@ -9665,8 +9630,7 @@ uint8_t *pulp_nn_matmul_i8_i2_i2(
                         uint16_t num_col_im2col,
                         uint16_t ch_out,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm,
-                        int nb_dedicated_cores);
+                        uint8_t flag_batchnorm);
 
 void pulp_nn_depthwise_u8_u8_i8(
                         uint8_t *pIn,

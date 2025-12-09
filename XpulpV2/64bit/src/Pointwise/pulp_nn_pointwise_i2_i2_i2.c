@@ -48,8 +48,7 @@ void pulp_nn_pointwise_i2_i2_i2(
                         uint16_t stride_y,
                         uint8_t flag_relu,
                         uint8_t flag_batch_norm,
-                        int nb_dedicated_cores)
-{
+){
   uint16_t ch_in_r = ch_in >> 2;
   uint16_t ch_out_r = ch_out >> 2;
 
@@ -112,8 +111,8 @@ void pulp_nn_pointwise_i2_i2_i2(
           (ch_in * dim_kernel_x * dim_kernel_y),
           ch_out,
           flag_relu,
-          flag_batch_norm,
-                        int nb_dedicated_cores);
+          flag_batch_norm
+);
       i_out_x+=2;
     }
 
