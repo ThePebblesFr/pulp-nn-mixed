@@ -48,17 +48,19 @@ void pulp_nn_conv_u2_i4_i4(
                         uint16_t stride_x,
                         uint16_t stride_y,
                         uint8_t flag_relu,
-                        uint8_t flag_batch_norm)
+                        uint8_t flag_batch_norm,
+                        int nb_dedicated_cores)
 {
   uint16_t ch_in_r = ch_in >> 2;
   uint16_t ch_out_r = ch_out >> 1;
 
   int core_id = pi_core_id();
+  core_id = core_id % nb_dedicated_cores;
   uint8_t * pIm2ColBase = pIm2ColBuffer + (2 * core_id * ch_in * dim_kernel_x * dim_kernel_y);
   int i_out_y, i_out_x, i_ker_y, i_ker_x;
   int Log2Core;
 
-  uint8_t extra_chunk = ((dim_out_y & (NUM_CORES-1)) != 0);
+  uint8_t extra_chunk = ((dim_out_y & (nb_dedicated_cores-1)) != 0);
   uint8_t extra_chunk_r;
   uint16_t dim_out_x_r;
   uint8_t section;
@@ -66,15 +68,15 @@ void pulp_nn_conv_u2_i4_i4(
 
   if(extra_chunk && dim_out_x > 1)
   {
-    Log2Core = log2(NUM_CORES >> 1);
+    Log2Core = log2(nb_dedicated_cores >> 1);
     core_id_r = (core_id >> 1);
     dim_out_x_r = (dim_out_x >> 1);
     section = (core_id & 0x1);
-    extra_chunk_r = ((dim_out_y & ((NUM_CORES >> 1) - 1)) != 0);
+    extra_chunk_r = ((dim_out_y & ((nb_dedicated_cores >> 1) - 1)) != 0);
   }
   else
   {
-    Log2Core = log2(NUM_CORES);
+    Log2Core = log2(nb_dedicated_cores);
     core_id_r = core_id;
     dim_out_x_r = dim_out_x;
     section = 0;

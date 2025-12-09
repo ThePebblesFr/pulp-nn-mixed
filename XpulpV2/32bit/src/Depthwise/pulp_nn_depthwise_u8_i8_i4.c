@@ -48,10 +48,12 @@ void pulp_nn_depthwise_u8_i8_i4(
                         uint16_t stride_x,
                         uint16_t stride_y,
                         uint8_t flag_relu,
-                        uint8_t flag_batch_norm)
+                        uint8_t flag_batch_norm,
+                        int nb_dedicated_cores)
 {
   uint8_t core_id = pi_core_id();
-  uint8_t Log2Core = log2(NUM_CORES);
+  core_id = core_id % nb_dedicated_cores;
+  uint8_t Log2Core = log2(nb_dedicated_cores);
 
   uint16_t ch_out_r = ch_out;
   uint16_t ch_in_r = ch_out;
@@ -59,7 +61,7 @@ void pulp_nn_depthwise_u8_i8_i4(
 
   uint16_t ch_min = ch_out >> 1;
 
-  int chunk = (ch_min >> Log2Core) + ((ch_min & (NUM_CORES - 1)) != 0);
+  int chunk = (ch_min >> Log2Core) + ((ch_min & (nb_dedicated_cores - 1)) != 0);
 
   int start_channel = min(chunk * core_id, ch_min);
   int stop_channel = min(start_channel + chunk, ch_min);
