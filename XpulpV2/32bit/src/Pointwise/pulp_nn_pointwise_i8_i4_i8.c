@@ -48,7 +48,7 @@ void pulp_nn_pointwise_i8_i4_i8(
                         uint16_t stride_y,
                         uint8_t flag_relu,
                         uint8_t flag_batch_norm,
-){
+                        int nb_dedicated_cores){
   uint16_t ch_in_r = ch_in;
   uint16_t ch_out_r = ch_out >> 1;
 
