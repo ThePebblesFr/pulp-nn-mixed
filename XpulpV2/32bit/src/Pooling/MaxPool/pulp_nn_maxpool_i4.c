@@ -38,18 +38,20 @@ void __attribute__ ((noinline)) pulp_nn_maxpool_i4(
   uint16_t  padding_l,
   uint16_t  padding_r,
   uint16_t  stride_x,
-  uint16_t  stride_y)
+  uint16_t  stride_y,
+                        int nb_dedicated_cores)
 {
   int core_id = pi_core_id();
-  int n_cores = NUM_CORES;
-  if (dim_im_in_y < NUM_CORES)
+  core_id = core_id % nb_dedicated_cores;
+  int n_cores = nb_dedicated_cores;
+  if (dim_im_in_y < nb_dedicated_cores)
   {
     n_cores = dim_im_in_y;
   }
   int  Log2Core = log2(n_cores);
   int ch_im_in_r = ch_im_in >> 1;
 
-  int chunck = (dim_im_in_y >> Log2Core) + ((dim_im_in_y & (NUM_CORES-1))!=0);
+  int chunck = (dim_im_in_y >> Log2Core) + ((dim_im_in_y & (nb_dedicated_cores-1))!=0);
 
   int start = min(chunck * core_id, dim_im_in_y);
   int stop = min(start + chunck, dim_im_in_y);
@@ -94,12 +96,12 @@ void __attribute__ ((noinline)) pulp_nn_maxpool_i4(
   }
 
   pi_cl_team_barrier();
-  if (dim_im_out_y < NUM_CORES)
+  if (dim_im_out_y < nb_dedicated_cores)
   {
     n_cores = dim_im_out_y;
   }
   Log2Core = log2(n_cores);
-  int chunck2 = (dim_im_out_y >> Log2Core) + ((dim_im_out_y & (NUM_CORES-1))!=0);
+  int chunck2 = (dim_im_out_y >> Log2Core) + ((dim_im_out_y & (nb_dedicated_cores-1))!=0);
   int start2 = chunck2 * core_id;
   int stop2 = min(start2 + chunck2, dim_im_out_y);
 

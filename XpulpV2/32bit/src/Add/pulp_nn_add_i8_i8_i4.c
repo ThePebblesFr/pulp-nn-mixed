@@ -38,18 +38,20 @@ void __attribute__ ((noinline)) pulp_nn_add_i8_i8_i4(
     uint16_t dim_im_in_x,
     uint16_t dim_im_in_y,
     uint16_t ch_im_in,
-    int      out_requant_flag)
+    int      out_requant_flag,
+    int nb_dedicated_cores)
 {
     int core_id = pi_core_id();
-    int n_cores = NUM_CORES;
+    core_id = core_id % nb_dedicated_cores;
+    int n_cores = nb_dedicated_cores;
 
-    if (dim_im_in_y < NUM_CORES)
+    if (dim_im_in_y < nb_dedicated_cores)
     {
       n_cores = dim_im_in_y;
     }
 
     int  Log2Core = log2(n_cores);
-    int chunck = (dim_im_in_y >> Log2Core) + ((dim_im_in_y & (NUM_CORES-1))!=0);
+    int chunck = (dim_im_in_y >> Log2Core) + ((dim_im_in_y & (nb_dedicated_cores-1))!=0);
 
     int32_t in1_rq1, in1_rq2, in1_rq3, in1_rq4,
              in2_rq1, in2_rq2, in2_rq3, in2_rq4;

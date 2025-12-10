@@ -42,13 +42,15 @@ void __attribute__ ((noinline))  pulp_nn_avgpool_i2_i2(
   uint16_t padding_r,
   uint16_t stride_x,
   uint16_t stride_y,
-  int flag_requant
+  int flag_requant,
+  int nb_dedicated_cores
 )
 {
   /* parallelization */
   int core_id = pi_core_id();
-  int n_cores = NUM_CORES;
-  if (dim_im_out_y < NUM_CORES)
+  core_id = core_id % nb_dedicated_cores;
+  int n_cores = nb_dedicated_cores;
+  if (dim_im_out_y < nb_dedicated_cores)
   {
     n_cores = dim_im_out_y;
   }

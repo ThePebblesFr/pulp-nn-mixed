@@ -27,14 +27,16 @@ void pulp_nn_linear_i2_i32_i2(
                   int8_t *pOut,
                   int8_t *pWeight,
                   uint16_t dim_vec,
-                  uint16_t num_o_neurons)
+                  uint16_t num_o_neurons,
+                  int nb_dedicated_cores)
 {
     uint16_t dim_vec_in = dim_vec >> 2;
     uint16_t dim_vec_wt = dim_vec >> 2;
 
     int core_id = pi_core_id();
-    int Log2Core = log2(NUM_CORES);
-    int chunk = (num_o_neurons >> Log2Core) + ((num_o_neurons & (NUM_CORES-1))!=0);
+    core_id = core_id % nb_dedicated_cores;
+    int Log2Core = log2(nb_dedicated_cores);
+    int chunk = (num_o_neurons >> Log2Core) + ((num_o_neurons & (nb_dedicated_cores-1))!=0);
     int start = min(chunk * core_id, num_o_neurons);
     int stop = min(start + chunk, num_o_neurons);
 

@@ -34,7 +34,8 @@ void pulp_nn_linear_i8_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batch_norm)
+                        uint8_t flag_batch_norm,
+                        int nb_dedicated_cores)
 {
     int8_t mask2 = 0x0c;
     int8_t n_mask2 = ~ mask2;
@@ -49,8 +50,9 @@ void pulp_nn_linear_i8_i2_i4(
     uint16_t dim_vec_wt = dim_vec >> 1;
 
     int core_id = pi_core_id();
-    int Log2Core = log2(NUM_CORES);
-    int chunk = (num_o_neurons >> Log2Core) + ((num_o_neurons & (NUM_CORES-1))!=0);
+    core_id = core_id % nb_dedicated_cores;
+    int Log2Core = log2(nb_dedicated_cores);
+    int chunk = (num_o_neurons >> Log2Core) + ((num_o_neurons & (nb_dedicated_cores-1))!=0);
     int neuron_left = 0;
     if (chunk & 0x3)
     {

@@ -31,18 +31,20 @@ void __attribute__ ((noinline)) pulp_nn_add_u4_u4(
     uint16_t out_shift,
     uint16_t dim_im_in_x,
     uint16_t dim_im_in_y,
-    uint16_t ch_im_in)
+    uint16_t ch_im_in,
+    int nb_dedicated_cores)
 {
     int core_id = pi_core_id();
-    int n_cores = NUM_CORES;
+    core_id = core_id % nb_dedicated_cores;
+    int n_cores = nb_dedicated_cores;
 
-    if (dim_im_in_y < NUM_CORES)
+    if (dim_im_in_y < nb_dedicated_cores)
     {
       n_cores = dim_im_in_y;
     }
 
     int  Log2Core = log2(n_cores);
-    int chunck = (dim_im_in_y >> Log2Core) + ((dim_im_in_y & (NUM_CORES-1))!=0);
+    int chunck = (dim_im_in_y >> Log2Core) + ((dim_im_in_y & (nb_dedicated_cores-1))!=0);
 
     uint8_t out1, out2, out3, out4;
 

@@ -4,7 +4,8 @@
  *
  * Copyright (C) 2019-2020 University of Bologna
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License",
+ * int nb_dedicated_cores);
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -186,6 +187,7 @@ void pulp_nn_conv_i8_u8_i8(
                         uint16_t stride_y,
                         uint8_t flag_relu,
                         uint8_t flag_batchnorm,
+                        int nb_dedicated_cores,
                         int nb_dedicated_cores);
 
 void pulp_nn_conv_i8_i8_i8(
@@ -214,6 +216,7 @@ void pulp_nn_conv_i8_i8_i8(
                         uint16_t stride_y,
                         uint8_t flag_relu,
                         uint8_t flag_batchnorm,
+                        int nb_dedicated_cores,
                         int nb_dedicated_cores);
 
 void pulp_nn_conv_i8_i8_i8(
@@ -12770,7 +12773,8 @@ void pulp_nn_linear_u8_i32_i8(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i32_i8(
                         int8_t *pIn,
@@ -12778,7 +12782,8 @@ void pulp_nn_linear_i8_i32_i8(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i32_i4(
                         uint8_t *pIn,
@@ -12786,7 +12791,8 @@ void pulp_nn_linear_u8_i32_i4(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i32_i4(
                         int8_t *pIn,
@@ -12794,7 +12800,8 @@ void pulp_nn_linear_i8_i32_i4(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i32_i2(
                         uint8_t *pIn,
@@ -12802,7 +12809,8 @@ void pulp_nn_linear_u8_i32_i2(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i32_i2(
                         int8_t *pIn,
@@ -12810,7 +12818,8 @@ void pulp_nn_linear_i8_i32_i2(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i32_i8(
                         uint8_t *pIn,
@@ -12818,7 +12827,8 @@ void pulp_nn_linear_u4_i32_i8(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i32_i8(
                         int8_t *pIn,
@@ -12826,7 +12836,8 @@ void pulp_nn_linear_i4_i32_i8(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i32_i4(
                         uint8_t *pIn,
@@ -12834,7 +12845,8 @@ void pulp_nn_linear_u4_i32_i4(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i32_i4(
                         int8_t *pIn,
@@ -12842,7 +12854,8 @@ void pulp_nn_linear_i4_i32_i4(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i32_i2(
                         uint8_t *pIn,
@@ -12850,7 +12863,8 @@ void pulp_nn_linear_u4_i32_i2(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i32_i2(
                         int8_t *pIn,
@@ -12858,7 +12872,8 @@ void pulp_nn_linear_i4_i32_i2(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i32_i8(
                         uint8_t *pIn,
@@ -12866,7 +12881,8 @@ void pulp_nn_linear_u2_i32_i8(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i32_i8(
                         int8_t *pIn,
@@ -12874,7 +12890,8 @@ void pulp_nn_linear_i2_i32_i8(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i32_i4(
                         uint8_t *pIn,
@@ -12882,7 +12899,8 @@ void pulp_nn_linear_u2_i32_i4(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i32_i4(
                         int8_t *pIn,
@@ -12890,7 +12908,8 @@ void pulp_nn_linear_i2_i32_i4(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i32_i2(
                         uint8_t *pIn,
@@ -12898,7 +12917,8 @@ void pulp_nn_linear_u2_i32_i2(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i32_i2(
                         int8_t *pIn,
@@ -12906,7 +12926,8 @@ void pulp_nn_linear_i2_i32_i2(
                         int8_t *pOut,
                         int8_t *pWeight,
                         uint16_t dim_vec,
-                        uint16_t num_o_neurons);
+                        uint16_t num_o_neurons,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u8_i8(
                         uint8_t *pIn,
@@ -12920,7 +12941,8 @@ void pulp_nn_linear_u8_u8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i8_i8(
                         uint8_t *pIn,
@@ -12934,7 +12956,8 @@ void pulp_nn_linear_u8_i8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u8_i8(
                         int8_t *pIn,
@@ -12948,7 +12971,8 @@ void pulp_nn_linear_i8_u8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i8_i8(
                         int8_t *pIn,
@@ -12962,7 +12986,8 @@ void pulp_nn_linear_i8_i8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u8_i4(
                         uint8_t *pIn,
@@ -12976,7 +13001,8 @@ void pulp_nn_linear_u8_u8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i8_i4(
                         uint8_t *pIn,
@@ -12990,7 +13016,8 @@ void pulp_nn_linear_u8_i8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u8_i4(
                         int8_t *pIn,
@@ -13004,7 +13031,8 @@ void pulp_nn_linear_i8_u8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i8_i4(
                         int8_t *pIn,
@@ -13018,7 +13046,8 @@ void pulp_nn_linear_i8_i8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u8_i2(
                         uint8_t *pIn,
@@ -13032,7 +13061,8 @@ void pulp_nn_linear_u8_u8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i8_i2(
                         uint8_t *pIn,
@@ -13046,7 +13076,8 @@ void pulp_nn_linear_u8_i8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u8_i2(
                         int8_t *pIn,
@@ -13060,7 +13091,8 @@ void pulp_nn_linear_i8_u8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i8_i2(
                         int8_t *pIn,
@@ -13074,7 +13106,8 @@ void pulp_nn_linear_i8_i8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u4_i8(
                         uint8_t *pIn,
@@ -13088,7 +13121,8 @@ void pulp_nn_linear_u8_u4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i4_i8(
                         uint8_t *pIn,
@@ -13102,7 +13136,8 @@ void pulp_nn_linear_u8_i4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u4_i8(
                         int8_t *pIn,
@@ -13116,7 +13151,8 @@ void pulp_nn_linear_i8_u4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i4_i8(
                         int8_t *pIn,
@@ -13130,7 +13166,8 @@ void pulp_nn_linear_i8_i4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u4_i4(
                         uint8_t *pIn,
@@ -13144,7 +13181,8 @@ void pulp_nn_linear_u8_u4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i4_i4(
                         uint8_t *pIn,
@@ -13158,7 +13196,8 @@ void pulp_nn_linear_u8_i4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u4_i4(
                         int8_t *pIn,
@@ -13172,7 +13211,8 @@ void pulp_nn_linear_i8_u4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i4_i4(
                         int8_t *pIn,
@@ -13186,7 +13226,8 @@ void pulp_nn_linear_i8_i4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u4_i2(
                         uint8_t *pIn,
@@ -13200,7 +13241,8 @@ void pulp_nn_linear_u8_u4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i4_i2(
                         uint8_t *pIn,
@@ -13214,7 +13256,8 @@ void pulp_nn_linear_u8_i4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u4_i2(
                         int8_t *pIn,
@@ -13228,7 +13271,8 @@ void pulp_nn_linear_i8_u4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i4_i2(
                         int8_t *pIn,
@@ -13242,7 +13286,8 @@ void pulp_nn_linear_i8_i4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u2_i8(
                         uint8_t *pIn,
@@ -13256,7 +13301,8 @@ void pulp_nn_linear_u8_u2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i2_i8(
                         uint8_t *pIn,
@@ -13270,7 +13316,8 @@ void pulp_nn_linear_u8_i2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u2_i8(
                         int8_t *pIn,
@@ -13284,7 +13331,8 @@ void pulp_nn_linear_i8_u2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i2_i8(
                         int8_t *pIn,
@@ -13298,7 +13346,8 @@ void pulp_nn_linear_i8_i2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u2_i4(
                         uint8_t *pIn,
@@ -13312,7 +13361,8 @@ void pulp_nn_linear_u8_u2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i2_i4(
                         uint8_t *pIn,
@@ -13326,7 +13376,8 @@ void pulp_nn_linear_u8_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u2_i4(
                         int8_t *pIn,
@@ -13340,7 +13391,8 @@ void pulp_nn_linear_i8_u2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i2_i4(
                         int8_t *pIn,
@@ -13354,7 +13406,8 @@ void pulp_nn_linear_i8_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_u2_i2(
                         uint8_t *pIn,
@@ -13368,7 +13421,8 @@ void pulp_nn_linear_u8_u2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u8_i2_i2(
                         uint8_t *pIn,
@@ -13382,7 +13436,8 @@ void pulp_nn_linear_u8_i2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_u2_i2(
                         int8_t *pIn,
@@ -13396,7 +13451,8 @@ void pulp_nn_linear_i8_u2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i8_i2_i2(
                         int8_t *pIn,
@@ -13410,7 +13466,8 @@ void pulp_nn_linear_i8_i2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u8_i8(
                         uint8_t *pIn,
@@ -13424,7 +13481,8 @@ void pulp_nn_linear_u4_u8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i8_i8(
                         uint8_t *pIn,
@@ -13438,7 +13496,8 @@ void pulp_nn_linear_u4_i8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u8_i8(
                         int8_t *pIn,
@@ -13452,7 +13511,8 @@ void pulp_nn_linear_i4_u8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i8_i8(
                         int8_t *pIn,
@@ -13466,7 +13526,8 @@ void pulp_nn_linear_i4_i8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u8_i4(
                         uint8_t *pIn,
@@ -13480,7 +13541,8 @@ void pulp_nn_linear_u4_u8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i8_i4(
                         uint8_t *pIn,
@@ -13494,7 +13556,8 @@ void pulp_nn_linear_u4_i8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u8_i4(
                         int8_t *pIn,
@@ -13508,7 +13571,8 @@ void pulp_nn_linear_i4_u8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i8_i4(
                         int8_t *pIn,
@@ -13522,7 +13586,8 @@ void pulp_nn_linear_i4_i8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u8_i2(
                         uint8_t *pIn,
@@ -13536,7 +13601,8 @@ void pulp_nn_linear_u4_u8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i8_i2(
                         uint8_t *pIn,
@@ -13550,7 +13616,8 @@ void pulp_nn_linear_u4_i8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u8_i2(
                         int8_t *pIn,
@@ -13564,7 +13631,8 @@ void pulp_nn_linear_i4_u8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i8_i2(
                         int8_t *pIn,
@@ -13578,7 +13646,8 @@ void pulp_nn_linear_i4_i8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u4_i8(
                         uint8_t *pIn,
@@ -13592,7 +13661,8 @@ void pulp_nn_linear_u4_u4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i4_i8(
                         uint8_t *pIn,
@@ -13606,7 +13676,8 @@ void pulp_nn_linear_u4_i4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u4_i8(
                         int8_t *pIn,
@@ -13620,7 +13691,8 @@ void pulp_nn_linear_i4_u4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i4_i8(
                         int8_t *pIn,
@@ -13634,7 +13706,8 @@ void pulp_nn_linear_i4_i4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u4_i4(
                         uint8_t *pIn,
@@ -13648,7 +13721,8 @@ void pulp_nn_linear_u4_u4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i4_i4(
                         uint8_t *pIn,
@@ -13662,7 +13736,8 @@ void pulp_nn_linear_u4_i4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u4_i4(
                         int8_t *pIn,
@@ -13676,7 +13751,8 @@ void pulp_nn_linear_i4_u4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i4_i4(
                         int8_t *pIn,
@@ -13690,7 +13766,8 @@ void pulp_nn_linear_i4_i4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u4_i2(
                         uint8_t *pIn,
@@ -13704,7 +13781,8 @@ void pulp_nn_linear_u4_u4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i4_i2(
                         uint8_t *pIn,
@@ -13718,7 +13796,8 @@ void pulp_nn_linear_u4_i4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u4_i2(
                         int8_t *pIn,
@@ -13732,7 +13811,8 @@ void pulp_nn_linear_i4_u4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i4_i2(
                         int8_t *pIn,
@@ -13746,7 +13826,8 @@ void pulp_nn_linear_i4_i4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u2_i8(
                         uint8_t *pIn,
@@ -13760,7 +13841,8 @@ void pulp_nn_linear_u4_u2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i2_i8(
                         uint8_t *pIn,
@@ -13774,7 +13856,8 @@ void pulp_nn_linear_u4_i2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u2_i8(
                         int8_t *pIn,
@@ -13788,7 +13871,8 @@ void pulp_nn_linear_i4_u2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i2_i8(
                         int8_t *pIn,
@@ -13802,7 +13886,8 @@ void pulp_nn_linear_i4_i2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u2_i4(
                         uint8_t *pIn,
@@ -13816,7 +13901,8 @@ void pulp_nn_linear_u4_u2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i2_i4(
                         uint8_t *pIn,
@@ -13830,7 +13916,8 @@ void pulp_nn_linear_u4_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u2_i4(
                         int8_t *pIn,
@@ -13844,7 +13931,8 @@ void pulp_nn_linear_i4_u2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i2_i4(
                         int8_t *pIn,
@@ -13858,7 +13946,8 @@ void pulp_nn_linear_i4_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_u2_i2(
                         uint8_t *pIn,
@@ -13872,7 +13961,8 @@ void pulp_nn_linear_u4_u2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u4_i2_i2(
                         uint8_t *pIn,
@@ -13886,7 +13976,8 @@ void pulp_nn_linear_u4_i2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_u2_i2(
                         int8_t *pIn,
@@ -13900,7 +13991,8 @@ void pulp_nn_linear_i4_u2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i4_i2_i2(
                         int8_t *pIn,
@@ -13914,7 +14006,8 @@ void pulp_nn_linear_i4_i2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u8_i8(
                         uint8_t *pIn,
@@ -13928,7 +14021,8 @@ void pulp_nn_linear_u2_u8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i8_i8(
                         uint8_t *pIn,
@@ -13942,7 +14036,8 @@ void pulp_nn_linear_u2_i8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u8_i8(
                         int8_t *pIn,
@@ -13956,7 +14051,8 @@ void pulp_nn_linear_i2_u8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i8_i8(
                         int8_t *pIn,
@@ -13970,7 +14066,8 @@ void pulp_nn_linear_i2_i8_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u8_i4(
                         uint8_t *pIn,
@@ -13984,7 +14081,8 @@ void pulp_nn_linear_u2_u8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i8_i4(
                         uint8_t *pIn,
@@ -13998,7 +14096,8 @@ void pulp_nn_linear_u2_i8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u8_i4(
                         int8_t *pIn,
@@ -14012,7 +14111,8 @@ void pulp_nn_linear_i2_u8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i8_i4(
                         int8_t *pIn,
@@ -14026,7 +14126,8 @@ void pulp_nn_linear_i2_i8_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u8_i2(
                         uint8_t *pIn,
@@ -14040,7 +14141,8 @@ void pulp_nn_linear_u2_u8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i8_i2(
                         uint8_t *pIn,
@@ -14054,7 +14156,8 @@ void pulp_nn_linear_u2_i8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u8_i2(
                         int8_t *pIn,
@@ -14068,7 +14171,8 @@ void pulp_nn_linear_i2_u8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i8_i2(
                         int8_t *pIn,
@@ -14082,7 +14186,8 @@ void pulp_nn_linear_i2_i8_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u4_i8(
                         uint8_t *pIn,
@@ -14096,7 +14201,8 @@ void pulp_nn_linear_u2_u4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i4_i8(
                         uint8_t *pIn,
@@ -14110,7 +14216,8 @@ void pulp_nn_linear_u2_i4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u4_i8(
                         int8_t *pIn,
@@ -14124,7 +14231,8 @@ void pulp_nn_linear_i2_u4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i4_i8(
                         int8_t *pIn,
@@ -14138,7 +14246,8 @@ void pulp_nn_linear_i2_i4_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u4_i4(
                         uint8_t *pIn,
@@ -14152,7 +14261,8 @@ void pulp_nn_linear_u2_u4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i4_i4(
                         uint8_t *pIn,
@@ -14166,7 +14276,8 @@ void pulp_nn_linear_u2_i4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u4_i4(
                         int8_t *pIn,
@@ -14180,7 +14291,8 @@ void pulp_nn_linear_i2_u4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i4_i4(
                         int8_t *pIn,
@@ -14194,7 +14306,8 @@ void pulp_nn_linear_i2_i4_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u4_i2(
                         uint8_t *pIn,
@@ -14208,7 +14321,8 @@ void pulp_nn_linear_u2_u4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i4_i2(
                         uint8_t *pIn,
@@ -14222,7 +14336,8 @@ void pulp_nn_linear_u2_i4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u4_i2(
                         int8_t *pIn,
@@ -14236,7 +14351,8 @@ void pulp_nn_linear_i2_u4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i4_i2(
                         int8_t *pIn,
@@ -14250,7 +14366,8 @@ void pulp_nn_linear_i2_i4_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u2_i8(
                         uint8_t *pIn,
@@ -14264,7 +14381,8 @@ void pulp_nn_linear_u2_u2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i2_i8(
                         uint8_t *pIn,
@@ -14278,7 +14396,8 @@ void pulp_nn_linear_u2_i2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u2_i8(
                         int8_t *pIn,
@@ -14292,7 +14411,8 @@ void pulp_nn_linear_i2_u2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i2_i8(
                         int8_t *pIn,
@@ -14306,7 +14426,8 @@ void pulp_nn_linear_i2_i2_i8(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u2_i4(
                         uint8_t *pIn,
@@ -14320,7 +14441,8 @@ void pulp_nn_linear_u2_u2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i2_i4(
                         uint8_t *pIn,
@@ -14334,7 +14456,8 @@ void pulp_nn_linear_u2_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u2_i4(
                         int8_t *pIn,
@@ -14348,7 +14471,8 @@ void pulp_nn_linear_i2_u2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i2_i4(
                         int8_t *pIn,
@@ -14362,7 +14486,8 @@ void pulp_nn_linear_i2_i2_i4(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_u2_i2(
                         uint8_t *pIn,
@@ -14376,7 +14501,8 @@ void pulp_nn_linear_u2_u2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_u2_i2_i2(
                         uint8_t *pIn,
@@ -14390,7 +14516,8 @@ void pulp_nn_linear_u2_i2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_u2_i2(
                         int8_t *pIn,
@@ -14404,7 +14531,8 @@ void pulp_nn_linear_i2_u2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_linear_i2_i2_i2(
                         int8_t *pIn,
@@ -14418,7 +14546,8 @@ void pulp_nn_linear_i2_i2_i2(
                         uint16_t dim_vec,
                         uint16_t num_o_neurons,
                         uint8_t flag_relu,
-                        uint8_t flag_batchnorm);
+                        uint8_t flag_batchnorm,
+                        int nb_dedicated_cores);
 
 void pulp_nn_maxpool_u8(
                         uint8_t * pIn,
@@ -14435,7 +14564,8 @@ void pulp_nn_maxpool_u8(
                         uint16_t  padding_l,
                         uint16_t  padding_r,
                         uint16_t  stride_x,
-                        uint16_t  stride_y);
+                        uint16_t  stride_y,
+                        int nb_dedicated_cores);
 
 void pulp_nn_maxpool_i8(
                         int8_t * pIn,
@@ -14452,7 +14582,8 @@ void pulp_nn_maxpool_i8(
                         uint16_t  padding_l,
                         uint16_t  padding_r,
                         uint16_t  stride_x,
-                        uint16_t  stride_y);
+                        uint16_t  stride_y,
+                        int nb_dedicated_cores);
 
 void pulp_nn_maxpool_u4(
                         uint8_t * pIn,
@@ -14469,7 +14600,8 @@ void pulp_nn_maxpool_u4(
                         uint16_t  padding_l,
                         uint16_t  padding_r,
                         uint16_t  stride_x,
-                        uint16_t  stride_y);
+                        uint16_t  stride_y,
+                        int nb_dedicated_cores);
 
 void pulp_nn_maxpool_i4(
                         int8_t * pIn,
@@ -14486,7 +14618,8 @@ void pulp_nn_maxpool_i4(
                         uint16_t  padding_l,
                         uint16_t  padding_r,
                         uint16_t  stride_x,
-                        uint16_t  stride_y);
+                        uint16_t  stride_y,
+                        int nb_dedicated_cores);
 
 void pulp_nn_maxpool_u2(
                         uint8_t * pIn,
@@ -14503,7 +14636,8 @@ void pulp_nn_maxpool_u2(
                         uint16_t  padding_l,
                         uint16_t  padding_r,
                         uint16_t  stride_x,
-                        uint16_t  stride_y);
+                        uint16_t  stride_y,
+                        int nb_dedicated_cores);
 
 void pulp_nn_maxpool_i2(
                         int8_t * pIn,
@@ -14520,7 +14654,8 @@ void pulp_nn_maxpool_i2(
                         uint16_t  padding_l,
                         uint16_t  padding_r,
                         uint16_t  stride_x,
-                        uint16_t  stride_y);
+                        uint16_t  stride_y,
+                        int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u8_u8(
                        uint8_t * pIn,
@@ -14541,8 +14676,8 @@ void pulp_nn_avgpool_u8_u8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u8_i8(
                        uint8_t * pIn,
@@ -14563,8 +14698,8 @@ void pulp_nn_avgpool_u8_i8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i8_u8(
                        int8_t * pIn,
@@ -14585,8 +14720,8 @@ void pulp_nn_avgpool_i8_u8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i8_i8(
                        int8_t * pIn,
@@ -14607,8 +14742,8 @@ void pulp_nn_avgpool_i8_i8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u8_u4(
                        uint8_t * pIn,
@@ -14629,8 +14764,8 @@ void pulp_nn_avgpool_u8_u4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u8_i4(
                        uint8_t * pIn,
@@ -14651,8 +14786,8 @@ void pulp_nn_avgpool_u8_i4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i8_u4(
                        int8_t * pIn,
@@ -14673,8 +14808,8 @@ void pulp_nn_avgpool_i8_u4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i8_i4(
                        int8_t * pIn,
@@ -14695,8 +14830,8 @@ void pulp_nn_avgpool_i8_i4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u8_u2(
                        uint8_t * pIn,
@@ -14717,8 +14852,8 @@ void pulp_nn_avgpool_u8_u2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u8_i2(
                        uint8_t * pIn,
@@ -14739,8 +14874,8 @@ void pulp_nn_avgpool_u8_i2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i8_u2(
                        int8_t * pIn,
@@ -14761,8 +14896,8 @@ void pulp_nn_avgpool_i8_u2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i8_i2(
                        int8_t * pIn,
@@ -14783,8 +14918,8 @@ void pulp_nn_avgpool_i8_i2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u4_u8(
                        uint8_t * pIn,
@@ -14805,8 +14940,8 @@ void pulp_nn_avgpool_u4_u8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u4_i8(
                        uint8_t * pIn,
@@ -14827,8 +14962,8 @@ void pulp_nn_avgpool_u4_i8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i4_u8(
                        int8_t * pIn,
@@ -14849,8 +14984,8 @@ void pulp_nn_avgpool_i4_u8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i4_i8(
                        int8_t * pIn,
@@ -14871,8 +15006,8 @@ void pulp_nn_avgpool_i4_i8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u4_u4(
                        uint8_t * pIn,
@@ -14893,8 +15028,8 @@ void pulp_nn_avgpool_u4_u4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u4_i4(
                        uint8_t * pIn,
@@ -14915,8 +15050,8 @@ void pulp_nn_avgpool_u4_i4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i4_u4(
                        int8_t * pIn,
@@ -14937,8 +15072,8 @@ void pulp_nn_avgpool_i4_u4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i4_i4(
                        int8_t * pIn,
@@ -14959,8 +15094,8 @@ void pulp_nn_avgpool_i4_i4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u4_u2(
                        uint8_t * pIn,
@@ -14981,8 +15116,8 @@ void pulp_nn_avgpool_u4_u2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u4_i2(
                        uint8_t * pIn,
@@ -15003,8 +15138,8 @@ void pulp_nn_avgpool_u4_i2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i4_u2(
                        int8_t * pIn,
@@ -15025,8 +15160,8 @@ void pulp_nn_avgpool_i4_u2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i4_i2(
                        int8_t * pIn,
@@ -15047,8 +15182,8 @@ void pulp_nn_avgpool_i4_i2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u2_u8(
                        uint8_t * pIn,
@@ -15069,8 +15204,8 @@ void pulp_nn_avgpool_u2_u8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u2_i8(
                        uint8_t * pIn,
@@ -15091,8 +15226,8 @@ void pulp_nn_avgpool_u2_i8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i2_u8(
                        int8_t * pIn,
@@ -15113,8 +15248,8 @@ void pulp_nn_avgpool_i2_u8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i2_i8(
                        int8_t * pIn,
@@ -15135,8 +15270,8 @@ void pulp_nn_avgpool_i2_i8(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u2_u4(
                        uint8_t * pIn,
@@ -15157,8 +15292,8 @@ void pulp_nn_avgpool_u2_u4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u2_i4(
                        uint8_t * pIn,
@@ -15179,8 +15314,8 @@ void pulp_nn_avgpool_u2_i4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i2_u4(
                        int8_t * pIn,
@@ -15201,8 +15336,8 @@ void pulp_nn_avgpool_i2_u4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i2_i4(
                        int8_t * pIn,
@@ -15223,8 +15358,8 @@ void pulp_nn_avgpool_i2_i4(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u2_u2(
                        uint8_t * pIn,
@@ -15245,8 +15380,8 @@ void pulp_nn_avgpool_u2_u2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_u2_i2(
                        uint8_t * pIn,
@@ -15267,8 +15402,8 @@ void pulp_nn_avgpool_u2_i2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i2_u2(
                        int8_t * pIn,
@@ -15289,8 +15424,8 @@ void pulp_nn_avgpool_i2_u2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_avgpool_i2_i2(
                        int8_t * pIn,
@@ -15311,8 +15446,8 @@ void pulp_nn_avgpool_i2_i2(
                        uint16_t padding_r,
                        uint16_t stride_x,
                        uint16_t stride_y,
-                       int flag_requant
-);
+                       int flag_requant,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8(
                         uint8_t * pIn1,
@@ -15323,7 +15458,8 @@ void pulp_nn_add_u8_u8(
                         uint16_t out_shift,
                         uint16_t dim_im_in_x,
                         uint16_t dim_im_in_y,
-                        uint16_t ch_im_in);
+                        uint16_t ch_im_in,
+                        int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8_u8(
                        uint8_t * pIn1,
@@ -15341,7 +15477,8 @@ void pulp_nn_add_u8_u8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8_u4(
                        uint8_t * pIn1,
@@ -15359,7 +15496,8 @@ void pulp_nn_add_u8_u8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8_u2(
                        uint8_t * pIn1,
@@ -15377,7 +15515,8 @@ void pulp_nn_add_u8_u8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8_i8(
                        uint8_t * pIn1,
@@ -15395,7 +15534,8 @@ void pulp_nn_add_u8_u8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8_i4(
                        uint8_t * pIn1,
@@ -15413,7 +15553,8 @@ void pulp_nn_add_u8_u8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u8_i2(
                        uint8_t * pIn1,
@@ -15431,7 +15572,8 @@ void pulp_nn_add_u8_u8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i8_u8(
                        uint8_t * pIn1,
@@ -15449,7 +15591,8 @@ void pulp_nn_add_u8_i8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i8_u4(
                        uint8_t * pIn1,
@@ -15467,7 +15610,8 @@ void pulp_nn_add_u8_i8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i8_u2(
                        uint8_t * pIn1,
@@ -15485,7 +15629,8 @@ void pulp_nn_add_u8_i8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i8_i8(
                        uint8_t * pIn1,
@@ -15503,7 +15648,8 @@ void pulp_nn_add_u8_i8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i8_i4(
                        uint8_t * pIn1,
@@ -15521,7 +15667,8 @@ void pulp_nn_add_u8_i8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i8_i2(
                        uint8_t * pIn1,
@@ -15539,7 +15686,8 @@ void pulp_nn_add_u8_i8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u8_u8(
                        uint8_t * pIn1,
@@ -15557,7 +15705,8 @@ void pulp_nn_add_i8_u8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u8_u4(
                        uint8_t * pIn1,
@@ -15575,7 +15724,8 @@ void pulp_nn_add_i8_u8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u8_u2(
                        uint8_t * pIn1,
@@ -15593,7 +15743,8 @@ void pulp_nn_add_i8_u8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u8_i8(
                        uint8_t * pIn1,
@@ -15611,7 +15762,8 @@ void pulp_nn_add_i8_u8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u8_i4(
                        uint8_t * pIn1,
@@ -15629,7 +15781,8 @@ void pulp_nn_add_i8_u8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u8_i2(
                        uint8_t * pIn1,
@@ -15647,7 +15800,8 @@ void pulp_nn_add_i8_u8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i8_u8(
                        uint8_t * pIn1,
@@ -15665,7 +15819,8 @@ void pulp_nn_add_i8_i8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i8_u4(
                        uint8_t * pIn1,
@@ -15683,7 +15838,8 @@ void pulp_nn_add_i8_i8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i8_u2(
                        uint8_t * pIn1,
@@ -15701,7 +15857,8 @@ void pulp_nn_add_i8_i8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i8_i8(
                        uint8_t * pIn1,
@@ -15719,7 +15876,8 @@ void pulp_nn_add_i8_i8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i8_i4(
                        uint8_t * pIn1,
@@ -15737,7 +15895,8 @@ void pulp_nn_add_i8_i8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i8_i2(
                        uint8_t * pIn1,
@@ -15755,7 +15914,8 @@ void pulp_nn_add_i8_i8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4(
                         uint8_t * pIn1,
@@ -15766,7 +15926,8 @@ void pulp_nn_add_u8_u4(
                         uint16_t out_shift,
                         uint16_t dim_im_in_x,
                         uint16_t dim_im_in_y,
-                        uint16_t ch_im_in);
+                        uint16_t ch_im_in,
+                        int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4_u8(
                        uint8_t * pIn1,
@@ -15784,7 +15945,8 @@ void pulp_nn_add_u8_u4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4_u4(
                        uint8_t * pIn1,
@@ -15802,7 +15964,8 @@ void pulp_nn_add_u8_u4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4_u2(
                        uint8_t * pIn1,
@@ -15820,7 +15983,8 @@ void pulp_nn_add_u8_u4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4_i8(
                        uint8_t * pIn1,
@@ -15838,7 +16002,8 @@ void pulp_nn_add_u8_u4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4_i4(
                        uint8_t * pIn1,
@@ -15856,7 +16021,8 @@ void pulp_nn_add_u8_u4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u4_i2(
                        uint8_t * pIn1,
@@ -15874,7 +16040,8 @@ void pulp_nn_add_u8_u4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i4_u8(
                        uint8_t * pIn1,
@@ -15892,7 +16059,8 @@ void pulp_nn_add_u8_i4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i4_u4(
                        uint8_t * pIn1,
@@ -15910,7 +16078,8 @@ void pulp_nn_add_u8_i4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i4_u2(
                        uint8_t * pIn1,
@@ -15928,7 +16097,8 @@ void pulp_nn_add_u8_i4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i4_i8(
                        uint8_t * pIn1,
@@ -15946,7 +16116,8 @@ void pulp_nn_add_u8_i4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i4_i4(
                        uint8_t * pIn1,
@@ -15964,7 +16135,8 @@ void pulp_nn_add_u8_i4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i4_i2(
                        uint8_t * pIn1,
@@ -15982,7 +16154,8 @@ void pulp_nn_add_u8_i4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u4_u8(
                        uint8_t * pIn1,
@@ -16000,7 +16173,8 @@ void pulp_nn_add_i8_u4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u4_u4(
                        uint8_t * pIn1,
@@ -16018,7 +16192,8 @@ void pulp_nn_add_i8_u4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u4_u2(
                        uint8_t * pIn1,
@@ -16036,7 +16211,8 @@ void pulp_nn_add_i8_u4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u4_i8(
                        uint8_t * pIn1,
@@ -16054,7 +16230,8 @@ void pulp_nn_add_i8_u4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u4_i4(
                        uint8_t * pIn1,
@@ -16072,7 +16249,8 @@ void pulp_nn_add_i8_u4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u4_i2(
                        uint8_t * pIn1,
@@ -16090,7 +16268,8 @@ void pulp_nn_add_i8_u4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i4_u8(
                        uint8_t * pIn1,
@@ -16108,7 +16287,8 @@ void pulp_nn_add_i8_i4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i4_u4(
                        uint8_t * pIn1,
@@ -16126,7 +16306,8 @@ void pulp_nn_add_i8_i4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i4_u2(
                        uint8_t * pIn1,
@@ -16144,7 +16325,8 @@ void pulp_nn_add_i8_i4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i4_i8(
                        uint8_t * pIn1,
@@ -16162,7 +16344,8 @@ void pulp_nn_add_i8_i4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i4_i4(
                        uint8_t * pIn1,
@@ -16180,7 +16363,8 @@ void pulp_nn_add_i8_i4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i4_i2(
                        uint8_t * pIn1,
@@ -16198,7 +16382,8 @@ void pulp_nn_add_i8_i4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2(
                         uint8_t * pIn1,
@@ -16209,7 +16394,8 @@ void pulp_nn_add_u8_u2(
                         uint16_t out_shift,
                         uint16_t dim_im_in_x,
                         uint16_t dim_im_in_y,
-                        uint16_t ch_im_in);
+                        uint16_t ch_im_in,
+                        int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2_u8(
                        uint8_t * pIn1,
@@ -16227,7 +16413,8 @@ void pulp_nn_add_u8_u2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2_u4(
                        uint8_t * pIn1,
@@ -16245,7 +16432,8 @@ void pulp_nn_add_u8_u2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2_u2(
                        uint8_t * pIn1,
@@ -16263,7 +16451,8 @@ void pulp_nn_add_u8_u2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2_i8(
                        uint8_t * pIn1,
@@ -16281,7 +16470,8 @@ void pulp_nn_add_u8_u2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2_i4(
                        uint8_t * pIn1,
@@ -16299,7 +16489,8 @@ void pulp_nn_add_u8_u2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_u2_i2(
                        uint8_t * pIn1,
@@ -16317,7 +16508,8 @@ void pulp_nn_add_u8_u2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i2_u8(
                        uint8_t * pIn1,
@@ -16335,7 +16527,8 @@ void pulp_nn_add_u8_i2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i2_u4(
                        uint8_t * pIn1,
@@ -16353,7 +16546,8 @@ void pulp_nn_add_u8_i2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i2_u2(
                        uint8_t * pIn1,
@@ -16371,7 +16565,8 @@ void pulp_nn_add_u8_i2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i2_i8(
                        uint8_t * pIn1,
@@ -16389,7 +16584,8 @@ void pulp_nn_add_u8_i2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i2_i4(
                        uint8_t * pIn1,
@@ -16407,7 +16603,8 @@ void pulp_nn_add_u8_i2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u8_i2_i2(
                        uint8_t * pIn1,
@@ -16425,7 +16622,8 @@ void pulp_nn_add_u8_i2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u2_u8(
                        uint8_t * pIn1,
@@ -16443,7 +16641,8 @@ void pulp_nn_add_i8_u2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u2_u4(
                        uint8_t * pIn1,
@@ -16461,7 +16660,8 @@ void pulp_nn_add_i8_u2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u2_u2(
                        uint8_t * pIn1,
@@ -16479,7 +16679,8 @@ void pulp_nn_add_i8_u2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u2_i8(
                        uint8_t * pIn1,
@@ -16497,7 +16698,8 @@ void pulp_nn_add_i8_u2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u2_i4(
                        uint8_t * pIn1,
@@ -16515,7 +16717,8 @@ void pulp_nn_add_i8_u2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_u2_i2(
                        uint8_t * pIn1,
@@ -16533,7 +16736,8 @@ void pulp_nn_add_i8_u2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i2_u8(
                        uint8_t * pIn1,
@@ -16551,7 +16755,8 @@ void pulp_nn_add_i8_i2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i2_u4(
                        uint8_t * pIn1,
@@ -16569,7 +16774,8 @@ void pulp_nn_add_i8_i2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i2_u2(
                        uint8_t * pIn1,
@@ -16587,7 +16793,8 @@ void pulp_nn_add_i8_i2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i2_i8(
                        uint8_t * pIn1,
@@ -16605,7 +16812,8 @@ void pulp_nn_add_i8_i2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i2_i4(
                        uint8_t * pIn1,
@@ -16623,7 +16831,8 @@ void pulp_nn_add_i8_i2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i8_i2_i2(
                        uint8_t * pIn1,
@@ -16641,7 +16850,8 @@ void pulp_nn_add_i8_i2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u8_u8(
                        uint8_t * pIn1,
@@ -16659,7 +16869,8 @@ void pulp_nn_add_u4_u8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u8_u4(
                        uint8_t * pIn1,
@@ -16677,7 +16888,8 @@ void pulp_nn_add_u4_u8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u8_u2(
                        uint8_t * pIn1,
@@ -16695,7 +16907,8 @@ void pulp_nn_add_u4_u8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u8_i8(
                        uint8_t * pIn1,
@@ -16713,7 +16926,8 @@ void pulp_nn_add_u4_u8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u8_i4(
                        uint8_t * pIn1,
@@ -16731,7 +16945,8 @@ void pulp_nn_add_u4_u8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u8_i2(
                        uint8_t * pIn1,
@@ -16749,7 +16964,8 @@ void pulp_nn_add_u4_u8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i8_u8(
                        uint8_t * pIn1,
@@ -16767,7 +16983,8 @@ void pulp_nn_add_u4_i8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i8_u4(
                        uint8_t * pIn1,
@@ -16785,7 +17002,8 @@ void pulp_nn_add_u4_i8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i8_u2(
                        uint8_t * pIn1,
@@ -16803,7 +17021,8 @@ void pulp_nn_add_u4_i8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i8_i8(
                        uint8_t * pIn1,
@@ -16821,7 +17040,8 @@ void pulp_nn_add_u4_i8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i8_i4(
                        uint8_t * pIn1,
@@ -16839,7 +17059,8 @@ void pulp_nn_add_u4_i8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i8_i2(
                        uint8_t * pIn1,
@@ -16857,7 +17078,8 @@ void pulp_nn_add_u4_i8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u8_u8(
                        uint8_t * pIn1,
@@ -16875,7 +17097,8 @@ void pulp_nn_add_i4_u8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u8_u4(
                        uint8_t * pIn1,
@@ -16893,7 +17116,8 @@ void pulp_nn_add_i4_u8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u8_u2(
                        uint8_t * pIn1,
@@ -16911,7 +17135,8 @@ void pulp_nn_add_i4_u8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u8_i8(
                        uint8_t * pIn1,
@@ -16929,7 +17154,8 @@ void pulp_nn_add_i4_u8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u8_i4(
                        uint8_t * pIn1,
@@ -16947,7 +17173,8 @@ void pulp_nn_add_i4_u8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u8_i2(
                        uint8_t * pIn1,
@@ -16965,7 +17192,8 @@ void pulp_nn_add_i4_u8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i8_u8(
                        uint8_t * pIn1,
@@ -16983,7 +17211,8 @@ void pulp_nn_add_i4_i8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i8_u4(
                        uint8_t * pIn1,
@@ -17001,7 +17230,8 @@ void pulp_nn_add_i4_i8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i8_u2(
                        uint8_t * pIn1,
@@ -17019,7 +17249,8 @@ void pulp_nn_add_i4_i8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i8_i8(
                        uint8_t * pIn1,
@@ -17037,7 +17268,8 @@ void pulp_nn_add_i4_i8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i8_i4(
                        uint8_t * pIn1,
@@ -17055,7 +17287,8 @@ void pulp_nn_add_i4_i8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i8_i2(
                        uint8_t * pIn1,
@@ -17073,7 +17306,8 @@ void pulp_nn_add_i4_i8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4(
                         uint8_t * pIn1,
@@ -17084,7 +17318,8 @@ void pulp_nn_add_u4_u4(
                         uint16_t out_shift,
                         uint16_t dim_im_in_x,
                         uint16_t dim_im_in_y,
-                        uint16_t ch_im_in);
+                        uint16_t ch_im_in,
+                        int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4_u8(
                        uint8_t * pIn1,
@@ -17102,7 +17337,8 @@ void pulp_nn_add_u4_u4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4_u4(
                        uint8_t * pIn1,
@@ -17120,7 +17356,8 @@ void pulp_nn_add_u4_u4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4_u2(
                        uint8_t * pIn1,
@@ -17138,7 +17375,8 @@ void pulp_nn_add_u4_u4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4_i8(
                        uint8_t * pIn1,
@@ -17156,7 +17394,8 @@ void pulp_nn_add_u4_u4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4_i4(
                        uint8_t * pIn1,
@@ -17174,7 +17413,8 @@ void pulp_nn_add_u4_u4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u4_i2(
                        uint8_t * pIn1,
@@ -17192,7 +17432,8 @@ void pulp_nn_add_u4_u4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i4_u8(
                        uint8_t * pIn1,
@@ -17210,7 +17451,8 @@ void pulp_nn_add_u4_i4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i4_u4(
                        uint8_t * pIn1,
@@ -17228,7 +17470,8 @@ void pulp_nn_add_u4_i4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i4_u2(
                        uint8_t * pIn1,
@@ -17246,7 +17489,8 @@ void pulp_nn_add_u4_i4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i4_i8(
                        uint8_t * pIn1,
@@ -17264,7 +17508,8 @@ void pulp_nn_add_u4_i4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i4_i4(
                        uint8_t * pIn1,
@@ -17282,7 +17527,8 @@ void pulp_nn_add_u4_i4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i4_i2(
                        uint8_t * pIn1,
@@ -17300,7 +17546,8 @@ void pulp_nn_add_u4_i4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u4_u8(
                        uint8_t * pIn1,
@@ -17318,7 +17565,8 @@ void pulp_nn_add_i4_u4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u4_u4(
                        uint8_t * pIn1,
@@ -17336,7 +17584,8 @@ void pulp_nn_add_i4_u4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u4_u2(
                        uint8_t * pIn1,
@@ -17354,7 +17603,8 @@ void pulp_nn_add_i4_u4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u4_i8(
                        uint8_t * pIn1,
@@ -17372,7 +17622,8 @@ void pulp_nn_add_i4_u4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u4_i4(
                        uint8_t * pIn1,
@@ -17390,7 +17641,8 @@ void pulp_nn_add_i4_u4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u4_i2(
                        uint8_t * pIn1,
@@ -17408,7 +17660,8 @@ void pulp_nn_add_i4_u4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i4_u8(
                        uint8_t * pIn1,
@@ -17426,7 +17679,8 @@ void pulp_nn_add_i4_i4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i4_u4(
                        uint8_t * pIn1,
@@ -17444,7 +17698,8 @@ void pulp_nn_add_i4_i4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i4_u2(
                        uint8_t * pIn1,
@@ -17462,7 +17717,8 @@ void pulp_nn_add_i4_i4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i4_i8(
                        uint8_t * pIn1,
@@ -17480,7 +17736,8 @@ void pulp_nn_add_i4_i4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i4_i4(
                        uint8_t * pIn1,
@@ -17498,7 +17755,8 @@ void pulp_nn_add_i4_i4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i4_i2(
                        uint8_t * pIn1,
@@ -17516,7 +17774,8 @@ void pulp_nn_add_i4_i4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2(
                         uint8_t * pIn1,
@@ -17527,7 +17786,8 @@ void pulp_nn_add_u4_u2(
                         uint16_t out_shift,
                         uint16_t dim_im_in_x,
                         uint16_t dim_im_in_y,
-                        uint16_t ch_im_in);
+                        uint16_t ch_im_in,
+                        int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2_u8(
                        uint8_t * pIn1,
@@ -17545,7 +17805,8 @@ void pulp_nn_add_u4_u2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2_u4(
                        uint8_t * pIn1,
@@ -17563,7 +17824,8 @@ void pulp_nn_add_u4_u2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2_u2(
                        uint8_t * pIn1,
@@ -17581,7 +17843,8 @@ void pulp_nn_add_u4_u2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2_i8(
                        uint8_t * pIn1,
@@ -17599,7 +17862,8 @@ void pulp_nn_add_u4_u2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2_i4(
                        uint8_t * pIn1,
@@ -17617,7 +17881,8 @@ void pulp_nn_add_u4_u2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_u2_i2(
                        uint8_t * pIn1,
@@ -17635,7 +17900,8 @@ void pulp_nn_add_u4_u2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i2_u8(
                        uint8_t * pIn1,
@@ -17653,7 +17919,8 @@ void pulp_nn_add_u4_i2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i2_u4(
                        uint8_t * pIn1,
@@ -17671,7 +17938,8 @@ void pulp_nn_add_u4_i2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i2_u2(
                        uint8_t * pIn1,
@@ -17689,7 +17957,8 @@ void pulp_nn_add_u4_i2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i2_i8(
                        uint8_t * pIn1,
@@ -17707,7 +17976,8 @@ void pulp_nn_add_u4_i2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i2_i4(
                        uint8_t * pIn1,
@@ -17725,7 +17995,8 @@ void pulp_nn_add_u4_i2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u4_i2_i2(
                        uint8_t * pIn1,
@@ -17743,7 +18014,8 @@ void pulp_nn_add_u4_i2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u2_u8(
                        uint8_t * pIn1,
@@ -17761,7 +18033,8 @@ void pulp_nn_add_i4_u2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u2_u4(
                        uint8_t * pIn1,
@@ -17779,7 +18052,8 @@ void pulp_nn_add_i4_u2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u2_u2(
                        uint8_t * pIn1,
@@ -17797,7 +18071,8 @@ void pulp_nn_add_i4_u2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u2_i8(
                        uint8_t * pIn1,
@@ -17815,7 +18090,8 @@ void pulp_nn_add_i4_u2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u2_i4(
                        uint8_t * pIn1,
@@ -17833,7 +18109,8 @@ void pulp_nn_add_i4_u2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_u2_i2(
                        uint8_t * pIn1,
@@ -17851,7 +18128,8 @@ void pulp_nn_add_i4_u2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i2_u8(
                        uint8_t * pIn1,
@@ -17869,7 +18147,8 @@ void pulp_nn_add_i4_i2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i2_u4(
                        uint8_t * pIn1,
@@ -17887,7 +18166,8 @@ void pulp_nn_add_i4_i2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i2_u2(
                        uint8_t * pIn1,
@@ -17905,7 +18185,8 @@ void pulp_nn_add_i4_i2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i2_i8(
                        uint8_t * pIn1,
@@ -17923,7 +18204,8 @@ void pulp_nn_add_i4_i2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i2_i4(
                        uint8_t * pIn1,
@@ -17941,7 +18223,8 @@ void pulp_nn_add_i4_i2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i4_i2_i2(
                        uint8_t * pIn1,
@@ -17959,7 +18242,8 @@ void pulp_nn_add_i4_i2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u8_u8(
                        uint8_t * pIn1,
@@ -17977,7 +18261,8 @@ void pulp_nn_add_u2_u8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u8_u4(
                        uint8_t * pIn1,
@@ -17995,7 +18280,8 @@ void pulp_nn_add_u2_u8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u8_u2(
                        uint8_t * pIn1,
@@ -18013,7 +18299,8 @@ void pulp_nn_add_u2_u8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u8_i8(
                        uint8_t * pIn1,
@@ -18031,7 +18318,8 @@ void pulp_nn_add_u2_u8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u8_i4(
                        uint8_t * pIn1,
@@ -18049,7 +18337,8 @@ void pulp_nn_add_u2_u8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u8_i2(
                        uint8_t * pIn1,
@@ -18067,7 +18356,8 @@ void pulp_nn_add_u2_u8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i8_u8(
                        uint8_t * pIn1,
@@ -18085,7 +18375,8 @@ void pulp_nn_add_u2_i8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i8_u4(
                        uint8_t * pIn1,
@@ -18103,7 +18394,8 @@ void pulp_nn_add_u2_i8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i8_u2(
                        uint8_t * pIn1,
@@ -18121,7 +18413,8 @@ void pulp_nn_add_u2_i8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i8_i8(
                        uint8_t * pIn1,
@@ -18139,7 +18432,8 @@ void pulp_nn_add_u2_i8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i8_i4(
                        uint8_t * pIn1,
@@ -18157,7 +18451,8 @@ void pulp_nn_add_u2_i8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i8_i2(
                        uint8_t * pIn1,
@@ -18175,7 +18470,8 @@ void pulp_nn_add_u2_i8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u8_u8(
                        uint8_t * pIn1,
@@ -18193,7 +18489,8 @@ void pulp_nn_add_i2_u8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u8_u4(
                        uint8_t * pIn1,
@@ -18211,7 +18508,8 @@ void pulp_nn_add_i2_u8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u8_u2(
                        uint8_t * pIn1,
@@ -18229,7 +18527,8 @@ void pulp_nn_add_i2_u8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u8_i8(
                        uint8_t * pIn1,
@@ -18247,7 +18546,8 @@ void pulp_nn_add_i2_u8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u8_i4(
                        uint8_t * pIn1,
@@ -18265,7 +18565,8 @@ void pulp_nn_add_i2_u8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u8_i2(
                        uint8_t * pIn1,
@@ -18283,7 +18584,8 @@ void pulp_nn_add_i2_u8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i8_u8(
                        uint8_t * pIn1,
@@ -18301,7 +18603,8 @@ void pulp_nn_add_i2_i8_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i8_u4(
                        uint8_t * pIn1,
@@ -18319,7 +18622,8 @@ void pulp_nn_add_i2_i8_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i8_u2(
                        uint8_t * pIn1,
@@ -18337,7 +18641,8 @@ void pulp_nn_add_i2_i8_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i8_i8(
                        uint8_t * pIn1,
@@ -18355,7 +18660,8 @@ void pulp_nn_add_i2_i8_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i8_i4(
                        uint8_t * pIn1,
@@ -18373,7 +18679,8 @@ void pulp_nn_add_i2_i8_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i8_i2(
                        uint8_t * pIn1,
@@ -18391,7 +18698,8 @@ void pulp_nn_add_i2_i8_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u4_u8(
                        uint8_t * pIn1,
@@ -18409,7 +18717,8 @@ void pulp_nn_add_u2_u4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u4_u4(
                        uint8_t * pIn1,
@@ -18427,7 +18736,8 @@ void pulp_nn_add_u2_u4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u4_u2(
                        uint8_t * pIn1,
@@ -18445,7 +18755,8 @@ void pulp_nn_add_u2_u4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u4_i8(
                        uint8_t * pIn1,
@@ -18463,7 +18774,8 @@ void pulp_nn_add_u2_u4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u4_i4(
                        uint8_t * pIn1,
@@ -18481,7 +18793,8 @@ void pulp_nn_add_u2_u4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u4_i2(
                        uint8_t * pIn1,
@@ -18499,7 +18812,8 @@ void pulp_nn_add_u2_u4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i4_u8(
                        uint8_t * pIn1,
@@ -18517,7 +18831,8 @@ void pulp_nn_add_u2_i4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i4_u4(
                        uint8_t * pIn1,
@@ -18535,7 +18850,8 @@ void pulp_nn_add_u2_i4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i4_u2(
                        uint8_t * pIn1,
@@ -18553,7 +18869,8 @@ void pulp_nn_add_u2_i4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i4_i8(
                        uint8_t * pIn1,
@@ -18571,7 +18888,8 @@ void pulp_nn_add_u2_i4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i4_i4(
                        uint8_t * pIn1,
@@ -18589,7 +18907,8 @@ void pulp_nn_add_u2_i4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i4_i2(
                        uint8_t * pIn1,
@@ -18607,7 +18926,8 @@ void pulp_nn_add_u2_i4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u4_u8(
                        uint8_t * pIn1,
@@ -18625,7 +18945,8 @@ void pulp_nn_add_i2_u4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u4_u4(
                        uint8_t * pIn1,
@@ -18643,7 +18964,8 @@ void pulp_nn_add_i2_u4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u4_u2(
                        uint8_t * pIn1,
@@ -18661,7 +18983,8 @@ void pulp_nn_add_i2_u4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u4_i8(
                        uint8_t * pIn1,
@@ -18679,7 +19002,8 @@ void pulp_nn_add_i2_u4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u4_i4(
                        uint8_t * pIn1,
@@ -18697,7 +19021,8 @@ void pulp_nn_add_i2_u4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u4_i2(
                        uint8_t * pIn1,
@@ -18715,7 +19040,8 @@ void pulp_nn_add_i2_u4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i4_u8(
                        uint8_t * pIn1,
@@ -18733,7 +19059,8 @@ void pulp_nn_add_i2_i4_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i4_u4(
                        uint8_t * pIn1,
@@ -18751,7 +19078,8 @@ void pulp_nn_add_i2_i4_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i4_u2(
                        uint8_t * pIn1,
@@ -18769,7 +19097,8 @@ void pulp_nn_add_i2_i4_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i4_i8(
                        uint8_t * pIn1,
@@ -18787,7 +19116,8 @@ void pulp_nn_add_i2_i4_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i4_i4(
                        uint8_t * pIn1,
@@ -18805,7 +19135,8 @@ void pulp_nn_add_i2_i4_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i4_i2(
                        uint8_t * pIn1,
@@ -18823,7 +19154,8 @@ void pulp_nn_add_i2_i4_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2(
                         uint8_t * pIn1,
@@ -18834,7 +19166,8 @@ void pulp_nn_add_u2_u2(
                         uint16_t out_shift,
                         uint16_t dim_im_in_x,
                         uint16_t dim_im_in_y,
-                        uint16_t ch_im_in);
+                        uint16_t ch_im_in,
+                        int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2_u8(
                        uint8_t * pIn1,
@@ -18852,7 +19185,8 @@ void pulp_nn_add_u2_u2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2_u4(
                        uint8_t * pIn1,
@@ -18870,7 +19204,8 @@ void pulp_nn_add_u2_u2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2_u2(
                        uint8_t * pIn1,
@@ -18888,7 +19223,8 @@ void pulp_nn_add_u2_u2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2_i8(
                        uint8_t * pIn1,
@@ -18906,7 +19242,8 @@ void pulp_nn_add_u2_u2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2_i4(
                        uint8_t * pIn1,
@@ -18924,7 +19261,8 @@ void pulp_nn_add_u2_u2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_u2_i2(
                        uint8_t * pIn1,
@@ -18942,7 +19280,8 @@ void pulp_nn_add_u2_u2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i2_u8(
                        uint8_t * pIn1,
@@ -18960,7 +19299,8 @@ void pulp_nn_add_u2_i2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i2_u4(
                        uint8_t * pIn1,
@@ -18978,7 +19318,8 @@ void pulp_nn_add_u2_i2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i2_u2(
                        uint8_t * pIn1,
@@ -18996,7 +19337,8 @@ void pulp_nn_add_u2_i2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i2_i8(
                        uint8_t * pIn1,
@@ -19014,7 +19356,8 @@ void pulp_nn_add_u2_i2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i2_i4(
                        uint8_t * pIn1,
@@ -19032,7 +19375,8 @@ void pulp_nn_add_u2_i2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_u2_i2_i2(
                        uint8_t * pIn1,
@@ -19050,7 +19394,8 @@ void pulp_nn_add_u2_i2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u2_u8(
                        uint8_t * pIn1,
@@ -19068,7 +19413,8 @@ void pulp_nn_add_i2_u2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u2_u4(
                        uint8_t * pIn1,
@@ -19086,7 +19432,8 @@ void pulp_nn_add_i2_u2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u2_u2(
                        uint8_t * pIn1,
@@ -19104,7 +19451,8 @@ void pulp_nn_add_i2_u2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u2_i8(
                        uint8_t * pIn1,
@@ -19122,7 +19470,8 @@ void pulp_nn_add_i2_u2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u2_i4(
                        uint8_t * pIn1,
@@ -19140,7 +19489,8 @@ void pulp_nn_add_i2_u2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_u2_i2(
                        uint8_t * pIn1,
@@ -19158,7 +19508,8 @@ void pulp_nn_add_i2_u2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i2_u8(
                        uint8_t * pIn1,
@@ -19176,7 +19527,8 @@ void pulp_nn_add_i2_i2_u8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i2_u4(
                        uint8_t * pIn1,
@@ -19194,7 +19546,8 @@ void pulp_nn_add_i2_i2_u4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i2_u2(
                        uint8_t * pIn1,
@@ -19212,7 +19565,8 @@ void pulp_nn_add_i2_i2_u2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i2_i8(
                        uint8_t * pIn1,
@@ -19230,7 +19584,8 @@ void pulp_nn_add_i2_i2_i8(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i2_i4(
                        uint8_t * pIn1,
@@ -19248,7 +19603,8 @@ void pulp_nn_add_i2_i2_i4(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 void pulp_nn_add_i2_i2_i2(
                        uint8_t * pIn1,
@@ -19266,7 +19622,8 @@ void pulp_nn_add_i2_i2_i2(
                        uint16_t dim_im_in_x,
                        uint16_t dim_im_in_y,
                        uint16_t ch_im_in,
-                       int      out_requant_flag);
+                       int      out_requant_flag,
+                       int nb_dedicated_cores);
 
 
 
