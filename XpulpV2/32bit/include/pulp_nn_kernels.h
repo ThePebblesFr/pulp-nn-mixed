@@ -187,7 +187,6 @@ void pulp_nn_conv_i8_u8_i8(
                         uint16_t stride_y,
                         uint8_t flag_relu,
                         uint8_t flag_batchnorm,
-                        int nb_dedicated_cores,
                         int nb_dedicated_cores);
 
 void pulp_nn_conv_i8_i8_i8(
@@ -216,7 +215,6 @@ void pulp_nn_conv_i8_i8_i8(
                         uint16_t stride_y,
                         uint8_t flag_relu,
                         uint8_t flag_batchnorm,
-                        int nb_dedicated_cores,
                         int nb_dedicated_cores);
 
 void pulp_nn_conv_i8_i8_i8(
