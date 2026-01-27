@@ -19,6 +19,14 @@
  * limitations under the License.
  */
 
+<%
+from itertools import product
+import numpy as np
+if config.act_prec == '32bit':
+    act_t = 'int32_t'
+else:
+    act_t = 'int64_t'
+%>\
 #ifndef __PULPNN_UTILS__
 #define __PULPNN_UTILS__
 
@@ -94,204 +102,51 @@
 #define A_SKIP(x)                                            asm volatile ("csrwi 0x106," x)
 #define W_SKIP(x)                                            asm volatile ("csrwi 0x107," x)
 
-static uint8_t __attribute__((noinline)) pulp_nn_quant_u2 (
+% for prec in [2,4,8]:
+% for signed in [False, True]:
+% for bn in [False, True]:
+<%
+t_prefix = "i" if signed else "u"
+dst_t = f"{t_prefix}{prec}"
+rt = f"{'u' if not signed else ''}int8_t"
+int_t = f"{'u' if not signed else ''}int32_t"
+clip_fn = f"clip{'s' if signed else ''}{prec}"
+%>\
+static ${rt} __attribute__((noinline)) pulp_nn${"_bn" if bn else ""}_quant_${dst_t} (
   int32_t phi,
+  % if bn:
+  ${act_t} k,
+  ${act_t} lambda,
+  % else:
   int16_t m,
+  % endif
   int8_t d
   ) {
+  % if bn:
+  ${act_t} integer_image_phi = (k * phi) + lambda;
+  ${act_t} x = (integer_image_phi) >> d;
+  % else:
   int32_t x = (m * phi) >> d;
-  uint8_t res = clip2(x);
+  % endif
+  ${rt} res = ${clip_fn}(x);
   return res;
 }
-static uint8_t __attribute__((noinline)) pulp_nn_bn_quant_u2 (
-  int32_t phi,
-  int32_t k,
-  int32_t lambda,
-  int8_t d
-  ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
-  uint8_t res = clip2(x);
-  return res;
-}
-static uint8_t __attribute__((noinline)) pulp_nn_add_quant_u2 (
-  uint8_t pix1,
-  uint8_t pix2,
+% endfor
+static ${rt} __attribute__((noinline)) pulp_nn_add_quant_${dst_t} (
+  ${rt} pix1,
+  ${rt} pix2,
   int16_t m1,
   int16_t m2,
   int8_t d
   ) {
-  uint32_t integer_image = pix1*m1 + pix2*m2;
-  uint32_t x = (integer_image) >> d;
-  uint8_t res = clip2(x);
+  ${int_t} integer_image = pix1*m1 + pix2*m2;
+  ${int_t} x = (integer_image) >> d;
+  ${rt} res = ${clip_fn}(x);
   return res;
 }
 
-static int8_t __attribute__((noinline)) pulp_nn_quant_i2 (
-  int32_t phi,
-  int16_t m,
-  int8_t d
-  ) {
-  int32_t x = (m * phi) >> d;
-  int8_t res = clips2(x);
-  return res;
-}
-static int8_t __attribute__((noinline)) pulp_nn_bn_quant_i2 (
-  int32_t phi,
-  int32_t k,
-  int32_t lambda,
-  int8_t d
-  ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
-  int8_t res = clips2(x);
-  return res;
-}
-static int8_t __attribute__((noinline)) pulp_nn_add_quant_i2 (
-  int8_t pix1,
-  int8_t pix2,
-  int16_t m1,
-  int16_t m2,
-  int8_t d
-  ) {
-  int32_t integer_image = pix1*m1 + pix2*m2;
-  int32_t x = (integer_image) >> d;
-  int8_t res = clips2(x);
-  return res;
-}
-
-static uint8_t __attribute__((noinline)) pulp_nn_quant_u4 (
-  int32_t phi,
-  int16_t m,
-  int8_t d
-  ) {
-  int32_t x = (m * phi) >> d;
-  uint8_t res = clip4(x);
-  return res;
-}
-static uint8_t __attribute__((noinline)) pulp_nn_bn_quant_u4 (
-  int32_t phi,
-  int32_t k,
-  int32_t lambda,
-  int8_t d
-  ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
-  uint8_t res = clip4(x);
-  return res;
-}
-static uint8_t __attribute__((noinline)) pulp_nn_add_quant_u4 (
-  uint8_t pix1,
-  uint8_t pix2,
-  int16_t m1,
-  int16_t m2,
-  int8_t d
-  ) {
-  uint32_t integer_image = pix1*m1 + pix2*m2;
-  uint32_t x = (integer_image) >> d;
-  uint8_t res = clip4(x);
-  return res;
-}
-
-static int8_t __attribute__((noinline)) pulp_nn_quant_i4 (
-  int32_t phi,
-  int16_t m,
-  int8_t d
-  ) {
-  int32_t x = (m * phi) >> d;
-  int8_t res = clips4(x);
-  return res;
-}
-static int8_t __attribute__((noinline)) pulp_nn_bn_quant_i4 (
-  int32_t phi,
-  int32_t k,
-  int32_t lambda,
-  int8_t d
-  ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
-  int8_t res = clips4(x);
-  return res;
-}
-static int8_t __attribute__((noinline)) pulp_nn_add_quant_i4 (
-  int8_t pix1,
-  int8_t pix2,
-  int16_t m1,
-  int16_t m2,
-  int8_t d
-  ) {
-  int32_t integer_image = pix1*m1 + pix2*m2;
-  int32_t x = (integer_image) >> d;
-  int8_t res = clips4(x);
-  return res;
-}
-
-static uint8_t __attribute__((noinline)) pulp_nn_quant_u8 (
-  int32_t phi,
-  int16_t m,
-  int8_t d
-  ) {
-  int32_t x = (m * phi) >> d;
-  uint8_t res = clip8(x);
-  return res;
-}
-static uint8_t __attribute__((noinline)) pulp_nn_bn_quant_u8 (
-  int32_t phi,
-  int32_t k,
-  int32_t lambda,
-  int8_t d
-  ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
-  uint8_t res = clip8(x);
-  return res;
-}
-static uint8_t __attribute__((noinline)) pulp_nn_add_quant_u8 (
-  uint8_t pix1,
-  uint8_t pix2,
-  int16_t m1,
-  int16_t m2,
-  int8_t d
-  ) {
-  uint32_t integer_image = pix1*m1 + pix2*m2;
-  uint32_t x = (integer_image) >> d;
-  uint8_t res = clip8(x);
-  return res;
-}
-
-static int8_t __attribute__((noinline)) pulp_nn_quant_i8 (
-  int32_t phi,
-  int16_t m,
-  int8_t d
-  ) {
-  int32_t x = (m * phi) >> d;
-  int8_t res = clips8(x);
-  return res;
-}
-static int8_t __attribute__((noinline)) pulp_nn_bn_quant_i8 (
-  int32_t phi,
-  int32_t k,
-  int32_t lambda,
-  int8_t d
-  ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
-  int8_t res = clips8(x);
-  return res;
-}
-static int8_t __attribute__((noinline)) pulp_nn_add_quant_i8 (
-  int8_t pix1,
-  int8_t pix2,
-  int16_t m1,
-  int16_t m2,
-  int8_t d
-  ) {
-  int32_t integer_image = pix1*m1 + pix2*m2;
-  int32_t x = (integer_image) >> d;
-  int8_t res = clips8(x);
-  return res;
-}
-
+% endfor
+% endfor
 
 static uint8_t __attribute__((noinline)) pulp_nn_u4_quant(int input, int16_t * pThr)
 {
@@ -760,7 +615,7 @@ static void __attribute__((noinline)) pulp_zero_mem(uint8_t * pBuffer, unsigned 
   for (int i=0; i<(size>>2); i++)
   {
     *((v4u *)pBuffer) = (v4u){0,0,0,0};
-    // MemoryFence();
+    MemoryFence();
     pBuffer+=4;
   }
   while(lfover)
@@ -770,379 +625,117 @@ static void __attribute__((noinline)) pulp_zero_mem(uint8_t * pBuffer, unsigned 
   }
 }
 
-static void __attribute__((noinline)) pulp_nn_im2col_u2_to_u8(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
+% for in_prec in [2,4,8]:
+% for signed in [False, True]:
+<%
+t_prefix = "i" if signed else "u"
+src_t = f"{t_prefix}{in_prec}"
+dst_t = f"{t_prefix}8"
+vt = f"v4{'s' if signed else 'u'}"
+pt = f"{'u' if not signed else ''}int8_t"
+in_els_per_word = 32//in_prec
+in_els_per_byte = in_els_per_word//4
+log_in_els_per_word = int(np.log2(32/in_prec))
+bex = "bitext" + ("u" if not signed else "")
+%>\
+static void __attribute__((noinline)) pulp_nn_im2col_${src_t}_to_${dst_t}(${pt} * pInput, ${pt} * pOutput, unsigned int blockSize)
 {
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
+  unsigned int blkCnt = blockSize >> ${log_in_els_per_word}u;
+  int lfover = blockSize & ${f"0x{in_els_per_word-1:02x}"};
   for (int i = 0; i<blkCnt; i++)
   {
-    pInput = pulp_nn_u2_to_u8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 16;
-  }
-  while (lfover)
-  {
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 0);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 2);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 4);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 6);
-    pOutput++;
-    pInput++;
-    lfover -= 4;
-  }
-}
-static void __attribute__((noinline)) pulp_nn_im2col_i2_to_i8(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_i2_to_i8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 16;
-  }
-  while (lfover)
-  {
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 0);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 2);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 4);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 6);
-    pOutput++;
-    pInput++;
-    lfover -= 4;
-  }
-}
-static void __attribute__((noinline)) pulp_nn_im2col_u4_to_u8(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 3u;
-  int lfover = blockSize & 0x07;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_u4_to_u8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 8;
-  }
-  while (lfover)
-  {
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 4, 0);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 4, 4);
-    pOutput++;
-    pInput++;
-    lfover -= 2;
-  }
-}
-static void __attribute__((noinline)) pulp_nn_im2col_i4_to_i8(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 3u;
-  int lfover = blockSize & 0x07;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_i4_to_i8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 8;
-  }
-  while (lfover)
-  {
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 4, 0);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 4, 4);
-    pOutput++;
-    pInput++;
-    lfover -= 2;
-  }
-}
-static void __attribute__((noinline)) pulp_nn_im2col_u8_to_u8(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 2u;
-  int lfover = blockSize & 0x03;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4u*)pOutput) = *((v4u*)pInput);
+  % if in_prec == 8:
+    *((${vt}*)pOutput) = *((${vt}*)pInput);
     pInput+=4;
     pOutput+=4;
+  % else:
+    pInput = pulp_nn_${src_t}_to_${dst_t}(pInput, pOutput);
+    MemoryFence();
+    pOutput += ${in_els_per_word};
+  % endif
   }
   while (lfover)
   {
-    *((uint8_t*)pOutput) = *((uint8_t*)pInput);
+    % if in_prec == 8:
+    *((${pt}*)pOutput) = *((${pt}*)pInput);
     pOutput++;
     pInput++;
     lfover--;
-  }
-}
-static void __attribute__((noinline)) pulp_nn_im2col_i8_to_i8(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 2u;
-  int lfover = blockSize & 0x03;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4s*)pOutput) = *((v4s*)pInput);
-    pInput+=4;
-    pOutput+=4;
-  }
-  while (lfover)
-  {
-    *((int8_t*)pOutput) = *((int8_t*)pInput);
+    % else:
+    % for e in range(in_els_per_byte):
+    *((${pt}*)pOutput) = (${pt}) ${bex}((${"unsigned " if not signed else ""}int) *pInput, ${in_prec}, ${in_prec * e});
     pOutput++;
+    % endfor
     pInput++;
-    lfover--;
+    lfover -= ${in_els_per_byte};
+    % endif
   }
 }
+% endfor
+% endfor
 
-static void __attribute__((noinline)) xpulp_nn_im2col_u2_to_u2(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
+% for in_prec, out_prec in product([2,4,8], [2,4,8]):
+% if out_prec >= in_prec:
+% for signed in [False, True]:
+<%
+t_prefix = "i" if signed else "u"
+src_t = f"{t_prefix}{in_prec}"
+dst_t = f"{t_prefix}{out_prec}"
+vt = f"v4{'s' if signed else 'u'}"
+pt = f"{'u' if not signed else ''}int8_t"
+in_els_per_word = 32//in_prec
+in_els_per_byte = in_els_per_word//4
+out_els_per_word = 32//out_prec
+out_els_per_byte = out_els_per_word//4
+log_in_els_per_word = int(np.log2(32/in_prec))
+bex = "bitext" + ("u" if not signed else "")
+%>\
+static void __attribute__((noinline)) xpulp_nn_im2col_${src_t}_to_${dst_t}(${pt} * pInput, ${pt} * pOutput, unsigned int blockSize)
 {
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
+  unsigned int blkCnt = blockSize >> ${log_in_els_per_word}u;
+  int lfover = blockSize & ${f"0x{in_els_per_word-1:02x}"};
   for (int i = 0; i<blkCnt; i++)
   {
-    *((v4u*)pOutput) = *((v4u*)pInput);
+  % if in_prec == out_prec:
+    *((${vt}*)pOutput) = *((${vt}*)pInput);
     pInput+=4;
     pOutput+=4;
-  }
-  while (lfover)
-  {
-    uint8_t extr;
-    *((uint8_t*)pOutput) = *((uint8_t*)pInput);
-    pOutput++;
-    pInput++;
-    lfover -= 4;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_i2_to_i2(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4s*)pOutput) = *((v4s*)pInput);
-    pInput+=4;
-    pOutput+=4;
-  }
-  while (lfover)
-  {
-    int8_t extr;
-    *((int8_t*)pOutput) = *((int8_t*)pInput);
-    pOutput++;
-    pInput++;
-    lfover -= 4;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_u2_to_u4(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_u2_to_u4(pInput, pOutput);
+  % else:
+    pInput = pulp_nn_${src_t}_to_${dst_t}(pInput, pOutput);
     MemoryFence();
-    pOutput += 8;
+    pOutput += ${in_els_per_word//out_els_per_byte};
+  % endif
   }
   while (lfover)
   {
-    uint8_t extr;
+    ${pt} extr;
+    % if in_prec == out_prec:
+    *((${pt}*)pOutput) = *((${pt}*)pInput);
+    pOutput++;
+    pInput++;
+    lfover -= ${in_els_per_byte};
+    % else:
+    % if out_prec == 8:
+    % for e in range(in_els_per_byte):
+    *((${pt}*)pOutput) = (${pt}) ${bex}((${"unsigned " if not signed else ""}int) *pInput, ${in_prec}, ${in_prec * e});
+    pOutput++;
+    % endfor
+    pInput++;
+    lfover -= ${in_els_per_byte};
+    % else :
     // TODO: this is potentially dangerous/wrong if the number of channels
-    // is not a multiple of 8!
-    *((v4u *)pOutput) = pulp_nn_u2_to_u4_r(pInput);
-    pInput += 2;
+    // is not a multiple of ${out_els_per_word}!
+    *((${vt} *)pOutput) = pulp_nn_${src_t}_to_${dst_t}_r(pInput);
+    pInput += ${out_els_per_word//in_els_per_byte};
     pOutput += 4;
-    lfover -= 8;
+    lfover -= ${out_els_per_word};
+    % endif
+    % endif
   }
 }
-static void __attribute__((noinline)) xpulp_nn_im2col_i2_to_i4(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_i2_to_i4(pInput, pOutput);
-    MemoryFence();
-    pOutput += 8;
-  }
-  while (lfover)
-  {
-    int8_t extr;
-    // TODO: this is potentially dangerous/wrong if the number of channels
-    // is not a multiple of 8!
-    *((v4s *)pOutput) = pulp_nn_i2_to_i4_r(pInput);
-    pInput += 2;
-    pOutput += 4;
-    lfover -= 8;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_u2_to_u8(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_u2_to_u8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 16;
-  }
-  while (lfover)
-  {
-    uint8_t extr;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 0);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 2);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 4);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 2, 6);
-    pOutput++;
-    pInput++;
-    lfover -= 4;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_i2_to_i8(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 4u;
-  int lfover = blockSize & 0x0f;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_i2_to_i8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 16;
-  }
-  while (lfover)
-  {
-    int8_t extr;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 0);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 2);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 4);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 2, 6);
-    pOutput++;
-    pInput++;
-    lfover -= 4;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_u4_to_u4(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 3u;
-  int lfover = blockSize & 0x07;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4u*)pOutput) = *((v4u*)pInput);
-    pInput+=4;
-    pOutput+=4;
-  }
-  while (lfover)
-  {
-    uint8_t extr;
-    *((uint8_t*)pOutput) = *((uint8_t*)pInput);
-    pOutput++;
-    pInput++;
-    lfover -= 2;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_i4_to_i4(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 3u;
-  int lfover = blockSize & 0x07;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4s*)pOutput) = *((v4s*)pInput);
-    pInput+=4;
-    pOutput+=4;
-  }
-  while (lfover)
-  {
-    int8_t extr;
-    *((int8_t*)pOutput) = *((int8_t*)pInput);
-    pOutput++;
-    pInput++;
-    lfover -= 2;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_u4_to_u8(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 3u;
-  int lfover = blockSize & 0x07;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_u4_to_u8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 8;
-  }
-  while (lfover)
-  {
-    uint8_t extr;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 4, 0);
-    pOutput++;
-    *((uint8_t*)pOutput) = (uint8_t) bitextu((unsigned int) *pInput, 4, 4);
-    pOutput++;
-    pInput++;
-    lfover -= 2;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_i4_to_i8(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 3u;
-  int lfover = blockSize & 0x07;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    pInput = pulp_nn_i4_to_i8(pInput, pOutput);
-    MemoryFence();
-    pOutput += 8;
-  }
-  while (lfover)
-  {
-    int8_t extr;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 4, 0);
-    pOutput++;
-    *((int8_t*)pOutput) = (int8_t) bitext((int) *pInput, 4, 4);
-    pOutput++;
-    pInput++;
-    lfover -= 2;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_u8_to_u8(uint8_t * pInput, uint8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 2u;
-  int lfover = blockSize & 0x03;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4u*)pOutput) = *((v4u*)pInput);
-    pInput+=4;
-    pOutput+=4;
-  }
-  while (lfover)
-  {
-    uint8_t extr;
-    *((uint8_t*)pOutput) = *((uint8_t*)pInput);
-    pOutput++;
-    pInput++;
-    lfover -= 1;
-  }
-}
-static void __attribute__((noinline)) xpulp_nn_im2col_i8_to_i8(int8_t * pInput, int8_t * pOutput, unsigned int blockSize)
-{
-  unsigned int blkCnt = blockSize >> 2u;
-  int lfover = blockSize & 0x03;
-  for (int i = 0; i<blkCnt; i++)
-  {
-    *((v4s*)pOutput) = *((v4s*)pInput);
-    pInput+=4;
-    pOutput+=4;
-  }
-  while (lfover)
-  {
-    int8_t extr;
-    *((int8_t*)pOutput) = *((int8_t*)pInput);
-    pOutput++;
-    pInput++;
-    lfover -= 1;
-  }
-}
+% endfor
+% endif
+% endfor
 
 
 

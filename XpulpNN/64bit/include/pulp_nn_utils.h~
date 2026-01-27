@@ -105,12 +105,12 @@ static uint8_t __attribute__((noinline)) pulp_nn_quant_u2 (
 }
 static uint8_t __attribute__((noinline)) pulp_nn_bn_quant_u2 (
   int32_t phi,
-  int32_t k,
-  int32_t lambda,
+  int64_t k,
+  int64_t lambda,
   int8_t d
   ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
+  int64_t integer_image_phi = (k * phi) + lambda;
+  int64_t x = (integer_image_phi) >> d;
   uint8_t res = clip2(x);
   return res;
 }
@@ -138,12 +138,12 @@ static int8_t __attribute__((noinline)) pulp_nn_quant_i2 (
 }
 static int8_t __attribute__((noinline)) pulp_nn_bn_quant_i2 (
   int32_t phi,
-  int32_t k,
-  int32_t lambda,
+  int64_t k,
+  int64_t lambda,
   int8_t d
   ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
+  int64_t integer_image_phi = (k * phi) + lambda;
+  int64_t x = (integer_image_phi) >> d;
   int8_t res = clips2(x);
   return res;
 }
@@ -171,12 +171,12 @@ static uint8_t __attribute__((noinline)) pulp_nn_quant_u4 (
 }
 static uint8_t __attribute__((noinline)) pulp_nn_bn_quant_u4 (
   int32_t phi,
-  int32_t k,
-  int32_t lambda,
+  int64_t k,
+  int64_t lambda,
   int8_t d
   ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
+  int64_t integer_image_phi = (k * phi) + lambda;
+  int64_t x = (integer_image_phi) >> d;
   uint8_t res = clip4(x);
   return res;
 }
@@ -204,12 +204,12 @@ static int8_t __attribute__((noinline)) pulp_nn_quant_i4 (
 }
 static int8_t __attribute__((noinline)) pulp_nn_bn_quant_i4 (
   int32_t phi,
-  int32_t k,
-  int32_t lambda,
+  int64_t k,
+  int64_t lambda,
   int8_t d
   ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
+  int64_t integer_image_phi = (k * phi) + lambda;
+  int64_t x = (integer_image_phi) >> d;
   int8_t res = clips4(x);
   return res;
 }
@@ -237,12 +237,12 @@ static uint8_t __attribute__((noinline)) pulp_nn_quant_u8 (
 }
 static uint8_t __attribute__((noinline)) pulp_nn_bn_quant_u8 (
   int32_t phi,
-  int32_t k,
-  int32_t lambda,
+  int64_t k,
+  int64_t lambda,
   int8_t d
   ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
+  int64_t integer_image_phi = (k * phi) + lambda;
+  int64_t x = (integer_image_phi) >> d;
   uint8_t res = clip8(x);
   return res;
 }
@@ -270,12 +270,12 @@ static int8_t __attribute__((noinline)) pulp_nn_quant_i8 (
 }
 static int8_t __attribute__((noinline)) pulp_nn_bn_quant_i8 (
   int32_t phi,
-  int32_t k,
-  int32_t lambda,
+  int64_t k,
+  int64_t lambda,
   int8_t d
   ) {
-  int32_t integer_image_phi = (k * phi) + lambda;
-  int32_t x = (integer_image_phi) >> d;
+  int64_t integer_image_phi = (k * phi) + lambda;
+  int64_t x = (integer_image_phi) >> d;
   int8_t res = clips8(x);
   return res;
 }
@@ -760,7 +760,7 @@ static void __attribute__((noinline)) pulp_zero_mem(uint8_t * pBuffer, unsigned 
   for (int i=0; i<(size>>2); i++)
   {
     *((v4u *)pBuffer) = (v4u){0,0,0,0};
-    // MemoryFence();
+    MemoryFence();
     pBuffer+=4;
   }
   while(lfover)

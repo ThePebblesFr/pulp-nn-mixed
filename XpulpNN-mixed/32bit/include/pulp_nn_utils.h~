@@ -760,7 +760,7 @@ static void __attribute__((noinline)) pulp_zero_mem(uint8_t * pBuffer, unsigned 
   for (int i=0; i<(size>>2); i++)
   {
     *((v4u *)pBuffer) = (v4u){0,0,0,0};
-    // MemoryFence();
+    MemoryFence();
     pBuffer+=4;
   }
   while(lfover)
