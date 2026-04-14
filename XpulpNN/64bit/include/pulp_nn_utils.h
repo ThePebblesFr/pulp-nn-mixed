@@ -226,12 +226,22 @@ static int8_t __attribute__((noinline)) pulp_nn_add_quant_i4 (
   return res;
 }
 
+// static uint8_t __attribute__((noinline)) pulp_nn_quant_u8 (
+//   int32_t phi,
+//   int16_t m,
+//   int8_t d
+//   ) {
+//   int32_t x = (m * phi) >> d;
+//   uint8_t res = clip8(x);
+//   return res;
+// }
 static uint8_t __attribute__((noinline)) pulp_nn_quant_u8 (
   int32_t phi,
-  int16_t m,
+  int32_t m,
   int8_t d
   ) {
-  int32_t x = (m * phi) >> d;
+  int64_t prod = ((int64_t)m) * ((int64_t)phi);
+  int32_t x = (int32_t)(prod >> d);
   uint8_t res = clip8(x);
   return res;
 }

@@ -85,20 +85,35 @@ void __attribute__((noinline)) xpulp_nn_linear_u8_u8_i8(
       //ensure enough instructions in the HW loop - otherwise it will work on GVSOC but not in real hardware!
       asm volatile("nop;");
     }
+    // uint16_t col_cnt = dim_vec & 0x3;
+    // if(col_cnt)
+    // {
+    //   pA=((dim_vec >> 2) << 2);
+    //   pB=((dim_vec >> 2) << 2);
+    //   do
+    //   {
+    //     uint8_t inB = *pB;
+    //     pB++;
+    //     int8_t inA = *pA;
+    //     pA++;
+    //     sum += inA * inB;
+    //     col_cnt--;
+    //   }while (col_cnt);
+    // }
     uint16_t col_cnt = dim_vec & 0x3;
-    if(col_cnt)
+    if (col_cnt)
     {
-      pA=((dim_vec >> 2) << 2);
-      pB=((dim_vec >> 2) << 2);
+      pA = pWeight + (i * dim_vec_wt) + ((dim_vec >> 2) << 2);
+      pB = pIn + ((dim_vec >> 2) << 2);
       do
       {
-        uint8_t inB = *pB;
+        int8_t inB = *pB;
         pB++;
         int8_t inA = *pA;
         pA++;
         sum += inA * inB;
         col_cnt--;
-      }while (col_cnt);
+      } while (col_cnt);
     }
     if (flag_batch_norm && flag_relu)
     {
